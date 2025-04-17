@@ -11,7 +11,7 @@ const app = new Hono().basePath("/api");
 
 app.get("/hello", clerkMiddleware(), (c) => {
   const auth = getAuth(c);
-  if (!auth) {
+  if (!auth?.userId) {
     return c.json({
      error: "Unauthorized",
     });

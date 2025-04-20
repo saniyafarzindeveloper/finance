@@ -1,3 +1,4 @@
+import Header from "@/components/ui/header"
 
 
 type Props = {
@@ -6,6 +7,10 @@ type Props = {
 
 export default function DashboardLayout({children} : Props) {
   return (
-    <div>{children}</div>
+    <>
+    <Header />
+    <main className="px-3 lg:px-14">{children}</main>
+    
+    </>
   )
 }

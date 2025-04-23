@@ -1,5 +1,8 @@
 "use client";
 
+import { usePathname } from "next/navigation";
+import NavButton from "./navbutton";
+
 const routes = [
   {
     href: "/",
@@ -17,9 +20,22 @@ const routes = [
   {
     href: "/settings",
     label: "Settings",
-  }
+  },
 ];
 
 export default function Navigation() {
-  return <div>Navigation</div>;
+  const pathname = usePathname();
+  return (
+    <nav className="hidden lg:flex items-center gap-x-2 overflow-x-auto">
+      {routes.map((route) => (
+        // <p>{route.label}</p>
+        <NavButton
+          key={route.href}
+          href={route.href}
+          label={route.label}
+          isActive={pathname === route.href}
+        />
+      ))}
+    </nav>
+  );
 }

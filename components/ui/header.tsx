@@ -1,6 +1,9 @@
 import React from "react";
 import HeaderLogo from "../headerlogo";
 import Navigation from "../navigation";
+import { UserButton, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
+import { Loader2 } from "lucide-react";
+import WelcomeMessage from "../welcome-msg";
 
 export default function Header() {
   return (
@@ -11,7 +14,12 @@ export default function Header() {
             <HeaderLogo />
             <Navigation />
           </div>
+          <ClerkLoaded> <UserButton afterSwitchSessionUrl="/" /></ClerkLoaded>
+         <ClerkLoading>
+          <Loader2 className="size-8 animate-spin text-white" />
+         </ClerkLoading>
         </div>
+        <WelcomeMessage />
       </div>
     </header>
   );

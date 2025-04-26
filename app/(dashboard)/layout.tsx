@@ -1,16 +1,14 @@
-import Header from "@/components/ui/header"
-
+import Header from "@/components/ui/header";
 
 type Props = {
-    children : React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-export default function DashboardLayout({children} : Props) {
+export default function DashboardLayout({ children }: Props) {
   return (
     <>
-    <Header />
-    <main className="px-3 lg:px-14">{children}</main>
-    
+      <Header />
+      <main className="px-3 lg:px-14">{children}</main>
     </>
-  )
+  );
 }
